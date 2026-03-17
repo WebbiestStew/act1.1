@@ -1,0 +1,19 @@
+name: DevOps Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repo
+        uses: actions/checkout@v3
+
+      - name: Verificar archivos del proyecto
+        run: ls -la
+
+      - name: Validar index.html
+        run: test -f index.html
